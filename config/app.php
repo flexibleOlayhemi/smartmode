@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Softwork_IoT'),
+    'name' => env('APP_NAME', 'SmartMode'),
 
     /*
     |--------------------------------------------------------------------------
@@ -119,7 +119,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY','base64:+Ne5y9Pw+GS2+L0MmxIc0pgoEy18UcKvsrO0tC73Zdc='),
+    'key' => env('APP_KEY','base64:tuPWgo5Dfnlw2cWV86QbwrgtZzQJRYMQxF0mla6hfoA='),
 
     'cipher' => 'AES-256-CBC',
 

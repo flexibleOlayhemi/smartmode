@@ -5,17 +5,15 @@ import fanOff from './images/fanOff.jpg';
 import fanOn from './images/fanOn.jpg';
 import bulbOff from './images/bulbOff.jpg';
 import bulbOn from './images/bulbOn.jpg';
-import tvOn from './images/tvOn.jpg';
-import tvOff from './images/tvOff.jpg';
 
 class Switches extends React.PureComponent{
     constructor(props){
         super(props)
 
-        this.state = {'fan':0,'bulb':0,'tv':0,'fanOld' : 0,'bulbOld':0,'tvOld' :0 };
+        this.state = {'fan':0,'bulb':0,'fanOld' : 0,'bulbOld':0};
         this.handleSwitchFan = this.handleSwitchFan.bind(this);
         this.handleSwitchBulb = this.handleSwitchBulb.bind(this);
-        this.handleSwitchtv = this.handleSwitchtv.bind(this);
+        
         
         
     }
@@ -32,10 +30,10 @@ class Switches extends React.PureComponent{
             this.setState({
                 'fan' : response.data.fan,
                 'bulb' : response.data.bulb,
-                'tv' : response.data.tv,
+                
                 'fanOld' : response.data.fan,
                 'bulbOld' : response.data.bulb,
-                'tvOld' : response.data.tv
+               
                 
             });
      
@@ -50,14 +48,13 @@ class Switches extends React.PureComponent{
     componentDidUpdate(){
         //send request only if any of the switch state changes
         if((this.state.fan != this.state.fanOld) || 
-        (this.state.bulb != this.state.bulbOld) ||
-        (this.state.tv != this.state.tvOld)  )
+        (this.state.bulb != this.state.bulbOld) )
         {
                 //console.log('One Device as been updated');
                 const content ={    
                     'fan' : this.state.fan ,
-                    'bulb' : this.state.bulb,
-                    'tv' : this.state.tv
+                    'bulb' : this.state.bulb
+                    
                 };
         
                 var host = window.location.origin;
@@ -72,8 +69,8 @@ class Switches extends React.PureComponent{
                     //update Old with New value
                 this.setState({
                     'fanOld' : this.state.fan,
-                    'bulbOld' : this.state.bulb,
-                    'tvOld' : this.state.tv
+                    'bulbOld' : this.state.bulb
+                    
                 })
         }
 
@@ -96,11 +93,7 @@ class Switches extends React.PureComponent{
         
     }
 
-    handleSwitchtv(){
-        this.setState({
-            'tv' : !this.state.tv      
-        });    
-    }
+  
 
     render(){
         return(
@@ -141,16 +134,7 @@ function Fan(props){
     )
 }
 
-function Television(props){
-    var style ={
-        height : '100px',
-        width : '100px'
-    }
-    return(
-        <img src={props.Status ? tvOn : tvOff} 
-        onClick={props.onClick} alt="tv" style={style}/>
-    )
-}
+
 
     export default Switches;
     if (document.getElementById('switches')) {

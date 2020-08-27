@@ -17,7 +17,6 @@ class CreateSwiotmodelsTable extends Migration
             $table->id();
             $table->integer('fan')->default(0);
             $table->integer('bulb')->default(0);
-            $table->integer('tv')->default(0);
             $table->timestamps();
         });
     }
