@@ -5,7 +5,7 @@
 use App\swiotmodel;
 use Faker\Generator as Faker;
 
-$factory->define(swiotmodel::class, function (Faker $faker) {
+$factory->define(swiotmodel::class, function () {
     return [
         //
         'fan'=>'0',
